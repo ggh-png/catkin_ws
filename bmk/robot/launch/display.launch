@@ -1,0 +1,26 @@
+<launch>
+
+  <include file = "$(find robot)/launch/description.launch"/>
+
+  <arg name="rviz_config" default="false"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="user_gui" value="true"/>
+
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0"/>
+    <param name="tf_prefix" value=""/>
+  </node>
+
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find robot)/rviz/model.rviz" />
+
+</launch>
+
+
+

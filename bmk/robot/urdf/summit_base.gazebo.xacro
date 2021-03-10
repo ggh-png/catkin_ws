@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<robot name="robot_sim" xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="mecanum_wheel" params="">
+
+      		<gazebo>
+	    <plugin name="mecanum_wheel" filename="libgazebo_ros_planar_move.so">
+	      <commandTopic>cmd_vel</commandTopic>
+	      <odometryTopic>odom</odometryTopic>
+	      <odometryFrame>odom</odometryFrame>
+	      <odometryRate>20.0</odometryRate>
+	      <robotBaseFrame>base_footprint</robotBaseFrame>
+	      <publishTF>true</publishTF>
+	    </plugin>
+     </gazebo>
+ </xacro:macro>
+
+ </robot>

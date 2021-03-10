@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535897931" />
+
+  <xacro:property name="wheel_radius" value="0.050" />
+  <xacro:property name="wheel_width" value="0.0505" />
+
+  <material name="yellow"><color rgba="0.8 0.8 0.0 1.0" /></material>
+  <material name="black"><color rgba="0.15 0.15 0.15 1.0" /></material>
+  <material name="dark_grey"><color rgba="0.2 0.2 0.2 1.0" /></material>
+  <material name="light_grey"><color rgba="0.4 0.4 0.4 1.0" /></material>
+
+    <xacro:include filename="$(find robot)/urdf/mecanum.xacro" />
+
+<!-- ##################### LINK ################## -->
+
+  <link name="base_footprint"/>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="1.9063E-05 -0.009805 0.0095341"
+        rpy="0 0 0" />
+      <mass
+        value="0.53123" />
+      <inertia
+        ixx="0.00085813"
+        ixy="-1.4462E-11"
+        ixz="-6.1024E-09"
+        iyy="0.00050302"
+        iyz="-5.8351E-06"
+        izz="0.0013036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.3" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+<!-- WHEEL_L LINK -->
+  <link name="wheel_L1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.01221 0" rpy="0 0 0"/>
+      <mass value="0.055"/>
+      <inertia
+        ixx="0.000021370" ixy="0" ixz="0"
+        iyy="0.000009966" iyz="0"
+        izz="0.000021370"/>
+    </inertial>
+  </link>
+
+
+   <link name="wheel_L2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.01221 0" rpy="0 0 0"/>
+      <mass value="0.055"/>
+      <inertia
+        ixx="0.000021370" ixy="0" ixz="0"
+        iyy="0.000009966" iyz="0"
+        izz="0.000021370"/>
+    </inertial>
+  </link>
+
+<!-- WHEEL_R LINK -->
+
+  <link
+    name="wheel_R1_link">
+    <inertial>
+      <origin
+        xyz="-0.021601 -4.4297E-07 -8.0909E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.042474" />
+      <inertia
+        ixx="3.575E-06"
+        ixy="5.6574E-11"
+        ixz="1.0333E-10"
+        iyy="3.6302E-06"
+        iyz="6.6798E-11"
+        izz="3.6303E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/wheel_R1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/wheel_R1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link
+    name="wheel_R2_link">
+    <inertial>
+      <origin
+        xyz="-0.0216007756058553 -4.429666057848E-07 -8.09094122027065E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0424743828860133" />
+      <inertia
+        ixx="3.57500682962755E-06"
+        ixy="5.65740745428313E-11"
+        ixz="1.03334158553149E-10"
+        iyy="3.63022192320037E-06"
+        iyz="6.67977120597837E-11"
+        izz="3.63030736469716E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/wheel_R2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/wheel_R2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+<!-- ################ ARM JOINT ################### -->
+
+   <link
+    name="arm_base_link">
+    <inertial>
+      <origin
+        xyz="-4.46691295064028E-17 0.0119191306326669 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0161811130872279" />
+      <inertia
+        ixx="3.35329869620831E-06"
+        ixy="1.38450246056672E-21"
+        ixz="3.49401090742399E-21"
+        iyy="9.34525230106505E-06"
+        iyz="3.55748927766808E-21"
+        izz="1.11164067282418E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/arm_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.913725490196078 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/arm_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="arm_link">
+    <inertial>
+      <origin
+        xyz="-0.037891 -9.3944E-12 0.0012432"
+        rpy="0 0 0" />
+      <mass
+        value="0.074773" />
+      <inertia
+        ixx="5.6047E-06"
+        ixy="2.5664E-11"
+        ixz="4.6677E-15"
+        iyy="1.241E-05"
+        iyz="5.6683E-16"
+        izz="1.164E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/arm_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/arm_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+<!-- ###################  JOINT   ############### -->
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="1.9063E-05 -0.009805 0.0095341" rpy="1.5708 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+
+<!-- WHELL_L JOINT -->
+
+  <joint name="wheel_L1_joint" type="fixed">
+    <origin xyz="0.150 0.108 0.0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="wheel_L1_link" />
+  </joint>
+
+
+  <joint name="wheel_L2_joint" type="fixed">
+    <origin xyz="-0.150 0.108 0.0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="wheel_L2_link" />
+  </joint>
+
+
+<!-- WHELL_R JOINT -->
+
+  <joint
+    name="wheel_R1_joint"
+    type="continuous">
+    <origin
+      xyz="0.066 -0.028021 -0.079221"
+      rpy="-0.61592 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_R1_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+
+  <joint
+    name="wheel_R2_joint"
+    type="continuous">
+    <origin
+      xyz="0.066 -0.028021 0.045779"
+      rpy="2.7498 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_R2_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <!-- Include controller plugin for Gazebo -->
+  <xacro:include filename="$(find nexus_4wd_mecanum_description)/urdf/nexus_4wd_mecanum.gazebo" />
+
+  <!-- Include URM04 ultrasonic range finders -->
+  <xacro:include filename="$(find nexus_4wd_mecanum_description)/urdf/urm04_sensor.xacro"/>
+
+
+</robot>

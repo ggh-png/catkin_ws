@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    </include>
+
+    <include file="$(find robot)/launch/display.launch"/>    
+
+
+    <node name="xacro_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot -param robot_description -x 0.0 -y 0.0 -z 0.0 -R 0.0 -P 0.0 -Y 3.1416"/>
+    
+</launch>
